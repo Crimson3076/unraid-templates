@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <Container version="2">
   <Name>Dragonwilds Dedicated Server</Name>
   <Repository>ich777/steamcmd-server:dragonwilds</Repository>
@@ -7,18 +8,22 @@
   <Privileged>false</Privileged>
   <Support>https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/</Support>
   <Project>https://dragonwilds.runescape.com/</Project>
-  <Overview>Dedicated server for RuneScape: Dragonwilds (0.11 Dowdun Reach). Automatically updates via SteamCMD.</Overview>
-  <Category>GameServers:</Category>
-  <Icon>https://raw.githubusercontent.com/Crimson7806/unraid-templates/main/icons/runescape-dragonwilds.png</Icon>
+  <Overview>Dedicated server for RuneScape: Dragonwilds (0.11 Dowdun Reach). This container automatically pulls the latest server binaries via SteamCMD on startup. Requires an Owner ID from your in-game settings.</Overview>
+  <Category>GameServers: Status:Stable</Category>
+  <Icon>https://raw.githubusercontent.com/Crimson7806/unraid-templates/main/icons/dragonwilds.png</Icon>
+  <Date>2026-03-31</Date>
+  <Changes>[Initial Release] Support for 0.11 update, 6-player cap, and Owner ID authentication.</Changes>
 
-  <Config Name="GAME_ID" Target="GAME_ID" Default="4019830" Type="Variable" Display="always" Required="true"/>
+  <Config Name="GAME_ID" Target="GAME_ID" Default="4019830" Type="Variable" Display="always" Required="true">4019830</Config>
   
-  <Config Name="Owner ID" Target="OWNER_ID" Default="" Type="Variable" Display="always" Required="true" Mask="false">YOUR_COPIED_ID_HERE</Config>
+  <Config Name="Owner ID" Target="OWNER_ID" Default="" Type="Variable" Display="always" Required="true" Mask="false" Description="Your Player ID found at the bottom of the in-game Settings menu."></Config>
 
-  <Config Name="Game Port" Target="7777" Default="7777" Mode="udp" Type="Port" Display="always" Required="true"/>
-  <Config Name="Query Port" Target="27015" Default="27015" Mode="udp" Type="Port" Display="always" Required="true"/>
+  <Config Name="Game Port" Target="7777" Default="7777" Mode="udp" Type="Port" Display="always" Required="true">7777</Config>
+  <Config Name="Query Port" Target="27015" Default="27015" Mode="udp" Type="Port" Display="always" Required="true">27015</Config>
 
   <Config Name="Server Name" Target="SERVER_NAME" Default="Dragonwilds Server" Type="Variable" Display="always"/>
   <Config Name="Max Players" Target="MAX_PLAYERS" Default="6" Type="Variable" Display="always"/>
   <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Type="Variable" Display="always" Mask="true"/>
+  
+  <Config Name="Appdata" Target="/serverdata" Default="/mnt/user/appdata/dragonwilds" Mode="rw" Type="Path" Display="always" Required="true"/>
 </Container>
